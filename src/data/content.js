@@ -55,7 +55,7 @@ export const siteData = {
     },
     {
       id: "img-3",
-      src: "/images/img3.PNG",
+      src: "/images/img3.png",
       alt: "Jasmiya - Special memory",
       caption: "My favourite girl.",
       subcaption: "The one who owns my whole heart ❤️",

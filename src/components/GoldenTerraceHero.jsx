@@ -53,6 +53,14 @@ export default function GoldenTerraceHero() {
               src={specialHeroImage.src}
               alt={specialHeroImage.alt}
               loading="eager"
+              onError={(e) => {
+                const currentSrc = e.currentTarget.src;
+                if (currentSrc.includes('%20')) {
+                  e.currentTarget.src = decodeURIComponent(currentSrc);
+                } else if (currentSrc.includes(' ')) {
+                  e.currentTarget.src = currentSrc.replace(/ /g, '%20');
+                }
+              }}
               className="w-full h-full object-cover object-center transform transition-transform duration-700 ease-out group-hover:scale-105"
             />
 

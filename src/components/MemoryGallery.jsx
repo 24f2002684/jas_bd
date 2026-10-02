@@ -96,6 +96,14 @@ export default function MemoryGallery() {
                   src={item.src}
                   alt={item.alt}
                   loading="lazy"
+                  onError={(e) => {
+                    const currentSrc = e.currentTarget.src;
+                    if (currentSrc.endsWith('.PNG')) {
+                      e.currentTarget.src = currentSrc.replace(/\.PNG$/, '.png');
+                    } else if (currentSrc.endsWith('.png')) {
+                      e.currentTarget.src = currentSrc.replace(/\.png$/, '.PNG');
+                    }
+                  }}
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
 
@@ -187,6 +195,14 @@ export default function MemoryGallery() {
                 <img
                   src={gallery[selectedIndex].src}
                   alt={gallery[selectedIndex].alt}
+                  onError={(e) => {
+                    const currentSrc = e.currentTarget.src;
+                    if (currentSrc.endsWith('.PNG')) {
+                      e.currentTarget.src = currentSrc.replace(/\.PNG$/, '.png');
+                    } else if (currentSrc.endsWith('.png')) {
+                      e.currentTarget.src = currentSrc.replace(/\.png$/, '.PNG');
+                    }
+                  }}
                   className="max-h-[70vh] w-auto object-contain rounded-2xl"
                 />
               </div>

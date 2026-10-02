@@ -35,6 +35,14 @@ export default function SpecialMemoryClimax() {
               src={specialHeroImage.src}
               alt={specialHeroImage.alt}
               loading="lazy"
+              onError={(e) => {
+                const currentSrc = e.currentTarget.src;
+                if (currentSrc.includes('%20')) {
+                  e.currentTarget.src = decodeURIComponent(currentSrc);
+                } else if (currentSrc.includes(' ')) {
+                  e.currentTarget.src = currentSrc.replace(/ /g, '%20');
+                }
+              }}
               className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-1000 ease-out"
             />
 
